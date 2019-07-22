@@ -1,0 +1,5 @@
+12715a0421,valid,8139945701,valid
+12715a0421,valid,8139945abc,invalid
+12715a0421,valid,,invalid
+12715a0422,invalid
+,invalid

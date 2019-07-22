@@ -1,0 +1,8 @@
+Test passed for valid uid
+Test passed for valid pwd
+Test passed for valid uid
+Test passed for invalid pwd
+Test passed for valid uid
+Test passed for blank pwd
+Test passed for invalid uid
+Test passed for blank uid
