@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="selenium methods"/>
 	<classpathentry kind="lib" path="E:/batch235/sikulixapi.jar"/>
 	<classpathentry kind="lib" path="E:/batch235/lib/cglib-nodep-3.2.4.jar"/>
 	<classpathentry kind="lib" path="E:/batch235/lib/commons-codec-1.10.jar"/>

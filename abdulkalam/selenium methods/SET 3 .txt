@@ -1,0 +1,57 @@
+*Selenium Webdriver Interview Questions for 2 Years Experience*
+
+Question 1) What are the annotations used in TestNG ?
+Question 2) How do you read data from excel ?
+Question 3) What is the use of xpath ?
+Question 4) What are different types of locators ?
+Question 5) What is the difference between Assert and Verify?
+Question 6) What is the alternate way to click on login button?
+Question 7) How do you verify if the checkbox/radio is checked or not ?
+Question 8) How do you handle alert pop-up ?
+Question 9) How do you launch IE/chrome browser?
+Question 10) How to perform right click using WebDriver?
+Question 11) How do perform drag and drop using WebDriver?
+Question 12) Give the example for method overload in WebDriver.
+Question 13) How do you upload a file?
+Question 14) How do you click on a menu item in a drop down menu?
+Question 15) How do you simulate browser back and forward ?
+Question 16) How do you get the current page URL ?
+Question 17) What is the difference between ‘/’ and ‘//’ ?
+Question 18) What is the difference between findElement and findElements?
+Question 19) How do you achieve synchronization in WebDriver ?
+Question 20) Write the code for Reading and Writing to Excel through Selenium ?
+
+*Selenium Interview Questions for 3 Years Experience*
+Question 21) How to get typed text from a textbox ?
+Question 22) What are the different exceptions you got when working with WebDriver ?
+Question 23) What are the languages supported by WebDriver ?
+Question 24) How do you clear the contents of a textbox in selenium ?
+Question 25) What is a Framework ?
+Question 26) What are the prerequisites to run selenium webdriver?
+Question 27) What are the advantages of selenium webdriver?
+Question 28) What is WebDriverBackedSelenium ?
+Question 29) How to invoke an application in webdriver ?
+Question 30) What is Selenium Grid ?
+Question 31) How to get the number of frames on a page ?
+Question 32) How do you simulate scroll down action ?
+Question 33) What is the command line we have to write inside a .bat file to execute a selenium project when we are using testng ?
+Question 34) Which is the package which is to be imported while working with WebDriver ?
+Question 35) How to check if an element is visible on the web page ?
+Question 36) How to check if a button is enabled on the page ?
+Question 37) How to check if a text is highlighted on the page ?
+Question 38) How to check the checkbox or radio button is selected ?
+Question 39) How to get the title of the page ?
+Question 40) How do u get the width of the textbox ?
+
+*Selenium Interview Questions for 4 Years Experience*
+Question 41) How do u get the attribute of the web element ?
+Question 42) How to check whether a text is underlined or not ?
+Question 43) How to change the URL on a webpage using selenium web driver ?
+Question 44) How to hover the mouse on an element ?
+Question 45) What is the use of getOptions() method ?
+Question 46) What is the use of deSelectAll() method ?
+Question 47) Is WebElement an interface or a class ?
+Question 48) FirefoxDriver is class or an interface and from where is it inherited ?
+Question 49) Which is the super interface of webdriver ?
+Question 50) What is the difference b/w close() and quit()?
+

@@ -1,0 +1,367 @@
+Ques 1) Can we enter text without using sendKeys() ?
+
+Ans – Yes we can enter text without using sendKeys() method. We have to use combination of javascript and wrapper classes with WebDriver extension class, check the below code-
+
+    public static void setAttribute(WebElement element, String attributeName, String value)
+    {
+        WrapsDriver wrappedElement = (WrapsDriver) element;
+        JavascriptExecutor driver = (JavascriptExecutor)wrappedElement.getWrappedDriver();
+        driver.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element, attributeName, value);
+    }
+Ques 2) There is a scenario whenever “Assert.assertEquals()” function fails automatically it has to take screenshot. How can you achieve this ?
+
+Ans- By using EventFiringWebDriver.
+	Syntax-EventFiringWebDriver eDriver=new EventFiringWebDriver(driver); 
+	File srcFile = eDriver.getScreenshotAs(OutputType.FILE);
+	FileUtils.copyFile(srcFile, new File(imgPath));
+Ques 3) How do you handle https website in selenium ?
+
+Ans- By changing the setting of FirefoxProfile.
+
+Syntax-
+
+public class HTTPSSecuredConnection {
+	public static void main(String[] args){
+	FirefoxProfile profile = new FirefoxProfile();
+	profile.setAcceptUntrustedCertificates(false);
+	WebDriver driver = new FirefoxDriver(profile);
+	driver.get("url");
+}
+
+Ques 4) How to login into any site if its showing any authetication popup for user name and pass ?
+
+Ans – pass the username and password with url.
+
+Syntax- http://username:password@url
+ex- http://creyate:jamesbond007@alpha.creyate.com
+
+Ques 5) What is the name of Headless browser.
+
+Ans- HtmlUnitDriver.
+
+Ques 6) Open a browser in memory means whenever it will try to open a browser the browser page must not come and can perform the operation internally.
+
+Ans- use HtmlUnitDriver.
+
+ex-
+
+public class Memory {	 
+	public static void main(String[] args) {
+		HtmlUnitDriver driver = new HtmlUnitDriver(true);
+		driver.setJavascriptEnabled(false); 
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.google.co.in/");
+		System.out.println(driver.getTitle());
+	 }
+  }
+Ques 7) What are the benefits of using TestNG ?
+
+Ans-
+
+	a) TestNG allows us to execute of test cases based on group.
+	b) In TestNG Annotations are easy to understand.
+	c) Parallel execution of Selenium test cases is possible in TestNG.
+	d) Three kinds of report generated
+	e) Order of execution can be changed
+	f) Failed test cases can be executed
+	g) Without having main function we can execute the test method.
+	h) An xml file can be generated to execute the entire test suite. In that xml file we can   rearrange our execution order and we can also skip the execution of particular test case.
+
+Ques 8) How do you take screen shot without using EventFiringWebDriver ?
+
+Ans-
+
+	File srcFile = ((TakeScreenshot)driver).getScreenshotAs(OutputType.FILE); //now we can do anything with this screenshot
+	like copy this to any folder-
+	FileUtils.copyFile(srcFile,new File(“folder name where u want to copy/file_name.png”));
+
+ 
+Ques 9) How do you send ENTER/TAB keys in WebDriver ?
+
+Ans- use click() or submit() [submit() can be used only when type=’submit’]) method for ENTER. Or use Actions class to press keys.
+For Enter-
+
+	act.sendKeys(Keys.RETURN);
+	act.sendKeys(Keys.ENTER);
+
+	where act is Actions class type. ( Actions act = new Actions(driver); )
+
+Ques 10) What is Datadriven framework & Keyword Driven ?
+
+Ans- Datadriven framework- In this Framework , while Test case logic resides in Test Scripts, the Test Data is separated and kept outside the Test Scripts.Test Data is read from the external files (Excel File) and are loaded into the variables inside the Test Script. Variables are used both for Input values and for Verification values.
+
+Keyword Driven framework- The Keyword-Driven or Table-Driven framework requires the development of data tables and keywords, independent of the test automation tool used to execute them . Tests can be designed with or without the Application. In a keyword-driven test, the functionality of the application-under-test is documented in a table as well as in step-by-step instructions for each test.
+
+Ques 11) While explaining the framework, what are points which should be covered ?
+
+Ans-
+
+a) What is the frame work.
+b) Which frame work you are using.
+c) Why This Frame work.
+d) Architecture.
+e) Explanation of every component of frame work.
+f) Process followed in frame work.
+g) How & when u execute the frame work.
+h) Code (u must write code and explain).
+i) Result and reporting .
+j) You should be able to explain it for 20 Minutes.
+
+Ques 12) How to switch back from a frame ?
+
+Ans- use method defaultContent().
+
+Syntax – driver.switchTo().defaultContent();
+
+Ques 13) How to type text in a new line inside a text area ?
+Ans- Use \n for new line.
+
+ex- webelement.sendKeys(“Sanjay_Line1.\n Sanjay_Line2.”);
+	it will type in text box as-
+	Sanjay_Line1.
+	Sanjay_Line2.
+
+Ques 14) What is the use of AutoIt tool ?
+
+Ans- Some times while doing testing with selenium, we get stuck by some interruptions like a window based pop up. But selenium fails to handle this as it has support for only web based application. To overcome this problem we need to use AutoIT along with selenium script. AutoIT is a third party tool to handle window based applications. The scripting language used is in VBScript.
+
+Ques 15) How to perform double click using WebDriver ?
+
+Ans- use doubleClick() method.
+Syntax- Actions act = new Actions(driver);
+act.doubleClick(webelement);
+
+Ques 16) How to press Shift+Tab ?
+
+Ans-
+String press = Keys.chord(Keys.SHIFT,Keys.ENTER);
+webelement.sendKeys(press);
+
+Ques 17) What is the use of contextClick() ?
+
+Ans- It is used to right click.
+
+Ques 18) What is the difference b/w getWindowHandles() and getWindowHandle() ?
+
+Ans- 
+	getWindowHandles()- is used to get the address of all the open browser and its return type is Iterator<String>.
+	getWindowHandle()- is used to get the address of the current browser where the conrol is and return type is String.
+
+Ques 19) How do you accommodate project specific methods in your framework ?
+
+Ans- 1st go through all the manual test cases and identify the steps which are repeating. Note down such steps and make them as methods and write into ProjectSpecificLibrary.
+
+Ques 20) What are different components of your framework ?
+
+Ans- Library- Assertion, ConfigLibrary, GenericLibrary, ProjectSpecificLibrary, Modules.
+   Drivers folder, Jars folder, excel file.
+
+Ques 21) What are the browsers supported by Selenium IDE ?
+
+Ans- Mozilla FireFox only. Its an Firefox add on.
+
+Ques 22) What are the limitations of Selenium IDE ?
+
+Ans-
+
+a) It does not supports looping or conditional statements. Tester has to use native languages to write logic in the test case.
+b) It does not supports test reporting, you have to use selenium RC with some external reporting plugin like TestNG or JUint to get test execution report.
+c) Error handling is also not supported depending on the native language for this.
+d) Only support in Mozilla FireFox only. Its an Firefox add on.
+
+Ques 23) How to check all checkboxes in a page ?
+
+Ans-
+
+	List&lt;webElement&gt; chkBox = driver.findElements(By.xpath(“//htmltag[@attbute='checkbox']”));
+	for(int i=0; i&lt;=chkBox.size(); i++)
+	  {
+		chkBox.get(i).click();
+	  }
+	  
+Ques 24) Count the number of links in a page.
+
+Ans- use the locator By.tagName and find the elements for the tag //a then use loop to count the number of elements found.
+Syntax- 
+	int count = 0;
+	List&lt;webElement&gt; link = driver.findElements(By.tagName(“a”))
+	System.out.println(link.size()); // this will print the number of links in a page.
+
+Ques 25) How do you identify the Xpath of element on your browser ?
+
+And- to find the xpath , we use Firebug addons on firefox browser and to identify the xpath written we use Firepath addons.
+
+Syntax- //htmltag[@attname='attvalue'] or //html[text()='textvalue'] or //htmltag[contains(text(),'textvalue')] or //htmltag[contains(@attname,'attvalue')]
+
+Ques 26) What is Selenium Webdriver ?
+Ans- WebDriver is the name of the key interface against which tests should be written in Java. All the methods of WebDriver have been implementated by RemoteWebDriver.
+
+Ques 27) What is Selenium IDE ?
+
+Ans- Selenium IDE is a complete integrated development environment (IDE) for Selenium tests. It is implemented as a Firefox Add-On, and allows recording, editing, and debugging tests. It was previously known as Selenium Recorder.
+Scripts may be automatically recorded and edited manually providing autocompletion support and the ability to move commands around quickly.
+Scripts are recorded in Selenese, a special test scripting language for Selenium. Selenese provides commands for performing actions in a browser (click a link, select an option), and for retrieving data from the resulting pages.
+
+Ques 28) What are the flavors of selenium ?
+
+Ans- selenium IDE, selenium RC, Selenium WebDriver and Selenium Grid.
+
+Ques 29) What is selenium ?
+
+Ans- Its an open source Web Automation Tool. It supports all types of web browsers. Despite being open source its actively developed and supported.
+
+Ques 30) Advantages of selenium over other tools ?
+
+Ans-
+
+a) Its free of cost,
+b) it supports many languages like Java, C#, Ruby, Python etc.,
+c) it allows simple and powerful DOM-level testing etc.
+
+Ques 31) What is main difference between RC and webdriver ?
+
+Ans- Selenium RC injects javascript function into browsers when the web page is loaded.
+
+Selenium WebDriver drives the browser using browser’s built-in support.
+
+Ques 32) Why you choose webdriver over RC ?
+
+Ans-
+
+a) Native automation faster and a little less prone to error and browser configuration,
+b) Does not Requires Selenium-RC Server to be running
+c) Access to headless HTMLUnitDriver can allow really fast tests
+d) Great API etc.
+
+Ques 33) Which one is better xpath or CSS ?
+
+Ans- xpath.
+
+Ques 34) How will you handle dynamic elements ?
+
+Ans- By writing relative xpath.
+
+Ques 35) what are the different assertions or check points used in your script ?
+
+Ans- The common types of validations are:
+
+a) Is the page title as expected,
+b) Validations against an element on the page,
+c) Does text exist on the page,
+d) Does a javascript call return an expected value.
+method used for validation – Assert.assertEquals();
+
+Ques 36) What is actions class in WebDriver ?
+
+Ans- Actions class is used to control the actions of mouse.
+
+Ques 37) What is the difference between @BeforeMethod and @BeforeClass ?
+
+Ans- @BeforeMethod- this will execute before every @Test method.
+
+@BeforeClass- this will execute before every class.
+
+Ques 38) What are the different attributes for @Test annotation ?
+
+Ans- alwaysRun, dataProvider, dependsOnMethods, enabled, expectedExceptions, timeOut etc.
+
+ex- @Test(expectedExceptions = ArithmeticException.class)
+@Test(timeOut = 2000)
+ 
+Ques 39) Can we run group of test cases using TestNG ?
+
+Ans- yes.
+
+Ques 40) What is object repository ?
+
+Ans- An object repository is a very essential entity in any UI automation tool. A repository allows a tester to store all the objects that will be used in the scripts in one or more centralized locations rather than letting them be scattered all over the test scripts. The concept of an object repository is not tied to WET alone. It can be used for any UI test automation. In fact, the original reason why the concept of object repositories were introduced was for a framework required by QTP.
+
+Ques 41) What are oops concepts ?
+
+Ans-
+
+a) Encapsulation,
+b) Abstraction,
+c) Polymorphism,
+d) Inheritance.
+
+Ques 42) What is inheritance ?
+
+Ans- Inherit the feature of any class by making some relations between the class/interface is known as inheritance.
+
+Ques 43) What is difference between overload and override ?
+
+Ans- The methods by passing different arguments list/type is known as overloading of methods while having the same method signature with different method body is known as method overriding.
+
+Ques 44) Does java supports multiple inheritance ?
+
+Ans- Interface supports multiple inheritance but class does not support.
+
+Ques 45) Write a java program for swapping of two numbers ?
+
+Ans-
+
+public class Swapping{
+public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		System.out.println(“enter the 1st num”);
+		int a = in.nextInt();
+		System.out.println(“enter the 2nd num”);
+		int b = in.nextInt();
+		System.out.println(“before swapping a=”+a+” and b= ”+b);
+		int x = a;
+		a = b;
+		b = x;
+		System.out.println(“After swapping a=”+a+” and b= ”+b);
+  }
+}
+Ques 46) Write a java program for factorial of a given number.
+
+Ans-
+
+public class Factorial{
+	public static void main(String args[])
+	{
+		Scanner in = new Scanner(System.in);
+		System.out.println(“enter the num for which u want the factorial”);
+		int num = in.nextInt();
+		for(int i=num-1; i&gt;0; i-- ){
+		   num = num*i;
+		} 
+	System.out.println(num);
+  }
+}
+
+
+Ques 47) What are the different access specifiers in Java?
+
+Ans- private, default, protected and public.
+
+Ques 48) Why do we go for automation testing ?
+
+Ans- Reasons-
+
+a) Manual testing of all work flows, all fields, all negative scenarios is time and cost consuming.
+b) It is difficult to test for multi lingual sites manually.
+c) Automation does not require human intervention. We can run automated test unattended(Overnight).
+d) Automation increases speed of test execution.
+e) Automation helps increase test coverage.
+f) Manual testing can become boring and hence error prone.
+
+Ques 49) What is testing strategy ?
+
+Ans- A Test Strategy document is a high level document and normally developed by project manager. 
+This document defines “Software Testing Approach” to achieve testing objectives. 
+The Test Strategy is normally derived from the Business Requirement Specification document.
+
+Ques 50) ) write a code to make use of assert if my username is incorrect.
+
+Ans-
+
+try{
+     Assert.assertEquals(expUserName, actUserName);
+   } 
+   catch(Exception e)
+   {
+	System.out.println(“name is invalid”);
+	}
